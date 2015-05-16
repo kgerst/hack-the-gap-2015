@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
     <title>Socket.IO chat</title>
     <style>
     * {
@@ -61,6 +62,10 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
     var socket = io();
+    socket.on('chat message', function(msg){
+      console.log(msg);
+      $('#messages').append($('<li>').text(msg));
+    });
     </script>
 </body>
 
