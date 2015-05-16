@@ -30,18 +30,23 @@ sp.open(function (error) {
     console.log('open');
     io.emit('chat message', 'serial port connection is open');
     sp.on('data', function(data) {      
-      var values = data.toString().split(',');
-      
-      var signalStrength = values[0];
-      var levelOfAttention = values[1];
-      var levelOfMeditation = values[2];
+      var inputString = data.toString();
+      if (inputString.length > 1) {
+        var values = inputString.split(',');      
+        var signalStrength = values[0];
+        console.log('signalStrength: ' + Number(signalStrength));    
 
-      io.emit('attention', levelOfAttention);
-      io.emit('meditation', levelOfMeditation);
-      
-      console.log('signalStrength: ' + levelOfAttention);    
-      console.log('attention: ' + levelOfAttention);    
-      console.log('meditation: ' + levelOfMeditation);    
+        if (signalStrength == 0) {
+          var levelOfAttention = values[1];
+          var levelOfMeditation = values[2];
+
+          io.emit('attention', levelOfAttention);
+          io.emit('meditation', levelOfMeditation);
+          
+          console.log('attention: ' + levelOfAttention);    
+          console.log('meditation: ' + levelOfMeditation);    
+        }
+      }
     });
   }
 });
