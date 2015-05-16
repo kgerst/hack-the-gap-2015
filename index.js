@@ -1,17 +1,18 @@
-console.log('test');
 
-var SerialPort = require("serialport").SerialPort
-var serialPort = new SerialPort("/dev/cu.usbmodem1421", {
-  baudrate: 9600
+var serialport = require('serialport');
+var SerialPort = serialport.SerialPort
+var sp = new SerialPort("/dev/cu.usbmodem1421", {
+  baudrate: 9600,
+  parser: serialport.parsers.raw
 });
 
-serialPort.open(function (error) {
+sp.open(function (error) {
   if ( error ) {
     console.log('failed to open: '+error);
   } else {
     console.log('open');
-    serialPort.on('data', function(data) {
-      console.log(':' + data);
+    sp.on('data', function(data) {
+      console.log(data.toString());
     });
   }
 });
