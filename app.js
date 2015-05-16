@@ -3,7 +3,8 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var serialport = require('serialport');
-var SerialPort = serialport.SerialPort
+var SerialPort = serialport.SerialPort;
+
 var sp = new SerialPort("/dev/cu.usbmodem1421", {
   baudrate: 9600,
   // baudrate: 57600,
@@ -29,12 +30,17 @@ sp.open(function (error) {
   } else {
     console.log('open');
     io.emit('chat message', 'serial port connection is open');
+    var lastSignalStrength = 200;  
     sp.on('data', function(data) {      
       var inputString = data.toString();
       if (inputString.length > 1) {
         var values = inputString.split(',');      
-        var signalStrength = values[0];
-        console.log('signalStrength: ' + Number(signalStrength));    
+        signalStrength = Number(values[0]);
+        console.log('signalStrength: ' + signalStrength);    
+        if (lastSignalStrength == 200 && signalStrength != 200) {
+          console.log('new session');
+        }
+        lastSignalStrength = signalStrength;
 
         if (signalStrength == 0) {
           var levelOfAttention = values[1];
@@ -54,3 +60,4 @@ sp.open(function (error) {
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
+
