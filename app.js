@@ -27,7 +27,7 @@ sp.open(function (error) {
     console.log('open');
     io.emit('chat message', 'serial port connection is open');
     sp.on('data', function(data) {
-      io.emit('chat message', data);
+      io.emit('chat message', data.toString());
       console.log(data.toString());
     });
   }

@@ -55,15 +55,11 @@
 
 <body>
     <ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off" />
-        <button>Send</button>
-    </form>
     <script src="/socket.io/socket.io.js"></script>
     <script>
     var socket = io();
     socket.on('chat message', function(msg){
-      console.log(msg);
+      console.log(msg);      
       $('#messages').append($('<li>').text(msg));
     });
     </script>
