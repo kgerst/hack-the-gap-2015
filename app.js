@@ -18,7 +18,6 @@ app.use(express.static('public'));
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  io.emit('chat message', 'hi');
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
@@ -30,9 +29,19 @@ sp.open(function (error) {
   } else {
     console.log('open');
     io.emit('chat message', 'serial port connection is open');
-    sp.on('data', function(data) {
-      io.emit('chat message', data.toString());
-      console.log(data.toString());
+    sp.on('data', function(data) {      
+      var values = data.toString().split(',');
+      
+      var signalStrength = values[0];
+      var levelOfAttention = values[1];
+      var levelOfMeditation = values[2];
+
+      io.emit('attention', levelOfAttention);
+      io.emit('meditation', levelOfMeditation);
+      
+      console.log('signalStrength: ' + levelOfAttention);    
+      console.log('attention: ' + levelOfAttention);    
+      console.log('meditation: ' + levelOfMeditation);    
     });
   }
 });

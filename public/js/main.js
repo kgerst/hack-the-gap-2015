@@ -10,9 +10,9 @@ var levelOfMeditation = 55;
 var meditationColor = "#FF5131";
 
 var socket = io();
-socket.on('chat message', function(msg) {
-    levelOfMeditation = msg.split(',')[2];
-    console.log('Meditation: ' + levelOfMeditation);    
+socket.on('meditation', function(msg) {
+    levelOfMeditation = msg;
+    console.log('meditation: ' + levelOfMeditation);    
 });
 
 
@@ -75,9 +75,9 @@ function setMeditationColor() {
 //set variables
 var levelOfAttention = 55;
 
-socket.on('chat message', function(msg) {
-    levelOfAttention = msg.split(',')[1];
-    console.log('Attention: ' + levelOfAttention);    
+socket.on('attention', function(msg) {
+    levelOfAttention = msg;
+    console.log('attention: ' + levelOfAttention);    
 });
 
 var attentionColor = "#FF5131";
