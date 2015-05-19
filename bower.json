@@ -1,0 +1,19 @@
+{
+  "name": "hack-the-gap-2015",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kgerst/hack-the-gap-2015",
+  "authors": [
+    "Kim Gerst <kimgerst@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.5"
+  }
+}
