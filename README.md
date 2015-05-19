@@ -37,7 +37,7 @@
 [http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/](http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/)
 
 ##Arduino Code Used
-https://github.com/kitschpatrol/Brain/tree/master/examples/BrainSerialTest
+https://github.com/kitschpatrol/Brain
 
 200 means there is an issue with the connection. You will not see eSense values (attention/meditation) unless you have 0 where you have 200.
 
