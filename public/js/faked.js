@@ -9,13 +9,6 @@
 var levelOfMeditation = 55;
 var meditationColor = "#FF5131";
 
-var socket = io();
-socket.on('meditation', function(msg) {
-    levelOfMeditation = msg;
-    console.log('meditation: ' + levelOfMeditation);    
-    addMeditationChartPlot(levelOfMeditation);
-});
-
 //set up SVG
 var meditationVis = d3.select("#meditation").append("svg").attr('id','visualization');
 var meditationCircle = d3.select("#meditation svg#visualization").append("circle");
@@ -59,6 +52,12 @@ function setMeditationColor() {
         .attr('fill-opacity', meditationOpacity);
   }, 1000);
 
+setInterval(function(){ 
+    levelOfMeditation = Math.random() * (0 - 255) + 255;
+    addMeditationChartPlot(levelOfMeditation);
+}, 1000);
+
+
 
 /***
  *       ___ _________________  ________________  _  __
@@ -71,12 +70,6 @@ function setMeditationColor() {
 var levelOfAttention = 55;
 var attentionColor = "#FF5131";
 var attentionCircle = d3.select("#meditation svg#visualization").append("circle");
-
-socket.on('attention', function(msg) {
-    levelOfAttention = msg;
-    console.log('attention: ' + levelOfAttention); 
-    addAttentionChartPlot(levelOfAttention);
-});
 
 attentionCircle.attr('class','attentionCircle')
       .attr('cy','250')
@@ -113,6 +106,14 @@ function setAttentionColor() {
         .attr('r', levelOfAttention)
         .attr('fill-opacity', attentionOpacity);
   }, 1000);
+
+
+setInterval(function(){ 
+    levelOfAttention = Math.random() * (0 - 255) + 255;
+    addAttentionChartPlot(levelOfAttention);
+    limitHowManyPlotted();
+}, 1000);
+
 
 /***
  *      _______ _____   ___  ______
