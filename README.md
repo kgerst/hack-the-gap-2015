@@ -28,13 +28,16 @@
 
 #How We Did It
 
-- To collect data: Arduino and Star Wars EEG Headset
-- To pull data off Arduino: Node.js
-- To visualize data: Javascript and D3
-- To stream data to webpage: Sockets.io
+- To collect data: [Arduino](http://www.arduino.cc/) and Star Wars EEG Headset
+- To pull data off Arduino: [Node.js](https://nodejs.org/)
+- To visualize data: Javascript and [D3](http://d3js.org/)
+- To stream data to webpage: [Socket.io](http://socket.io/)
 
 #References / Notes
 [http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/](http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/)
+
+##Arduino Code Used
+https://github.com/kitschpatrol/Brain/tree/master/examples/BrainSerialTest
 
 200 means there is an issue with the connection. You will not see eSense values (attention/meditation) unless you have 0 where you have 200.
 
