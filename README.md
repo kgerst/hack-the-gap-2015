@@ -1,3 +1,4 @@
+
 #Brainwave Biofeedback
 **Our Team**:
 
@@ -32,6 +33,14 @@
 - To pull data off Arduino: [Node.js](https://nodejs.org/)
 - To visualize data: Javascript and [D3](http://d3js.org/)
 - To stream data to webpage: [Socket.io](http://socket.io/)
+
+##Installation & Setup
+
+###Pre-requisites
+1. You have [installed the Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software)
+###Program the Arduino
+###Running the Server
+###Viewing the Web Page
 
 #References / Notes
 [http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/](http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/)
