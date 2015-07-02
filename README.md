@@ -40,38 +40,21 @@
 ##Pre-requisites
 1. You have installed the [Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software)
 2. You have installed [Node.js](https://nodejs.org)
+
 ##Program the Arduino
 1. Download the latest release of the [Arduino Brain Library](https://github.com/kitschpatrol/Brain/releases) as a zip file
 2. From the Arduino IDE, import the Brain Library. From the **Sketch** menu, select **Import Library...**, then **Add Library...** and select the zip file that you downloaded in step 1.
-3. For this project we used one of the examples provided with the Brain Library [https://github.com/kitschpatrol/Brain/blob/master/examples/BrainSerialTest/BrainSerialTest.ino](https://github.com/kitschpatrol/Brain/blob/master/examples/BrainSerialTest/BrainSerialTest.ino)
-```c++
-// Arduino Brain Library - Brain Serial Test
+3. For this project we used one of the examples provided with the Brain Library ([BrainSerialTest](https://github.com/kitschpatrol/Brain/blob/master/examples/BrainSerialTest/BrainSerialTest.ino)).
 
-// Description: Grabs brain data from the serial RX pin and sends CSV out over the TX pin (Half duplex.)
-// More info: https://github.com/kitschpatrol/Arduino-Brain-Library
-// Author: Eric Mika, 2010 revised in 2014
+##Installing the Server's Dependencies
+The locally running server that reads the data off of the Arduino and streams it to a webpage was written using Node. In order to install the project and all its dependencies, follow these steps:
+1. `git clone https://github.com/kgerst/hack-the-gap-2015.git` - be ready to provide your github credentials or clone via ssh: `git clone git@github.com:kgerst/hack-the-gap-2015.git`
+2. From within the hack-the-gap-2015 directory, execute the following commands: `sudo npm install -g bower`
+`sudo npm install -g gulp`
+`npm install`
+`bower install`
+`gulp`
 
-#include <Brain.h>
-
-// Set up the brain parser, pass it the hardware serial object you want to listen on.
-Brain brain(Serial);
-
-void setup() {
-    // Start the hardware serial.
-    Serial.begin(9600);
-}
-
-void loop() {
-    // Expect packets about once per second.
-    // The .readCSV() function returns a string (well, char*) listing the most recent brain data, in the following format:
-    // "signal strength, attention, meditation, delta, theta, low alpha, high alpha, low beta, high beta, low gamma, high gamma"    
-    if (brain.update()) {
-        Serial.println(brain.readErrors());
-        Serial.println(brain.readCSV());
-    }
-}
-```
-##Running the Server
 ##Viewing the Web Page
 
 #Other References and Notes
