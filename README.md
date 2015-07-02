@@ -1,5 +1,6 @@
 
 #Brainwave Biofeedback
+#Project Overview
 **Our Team**:
 
 - Angeliki Beyko
@@ -9,8 +10,8 @@
 - Emi Lyman
 - Jasmine Russell
 
-#What We Measured
-##Meditation Levels (Blue Scale Colors)
+##What We Measured
+###Meditation Levels (Blue Scale Colors)
 
 - Gross Meditation (0-51)
 - Subtle Meditation (52-102)
@@ -18,7 +19,7 @@
 - I-ness Meditation (154-204)
 - Objectness Meditation (205-255)
 
-##Attention Levels (Red Scale Colors)
+###Attention Levels (Red Scale Colors)
 
 - None (0-42.5)
 - Focused Attention (42.6-85)
@@ -27,22 +28,29 @@
 - Alternating Attention (171-212.5)
 - Divided Attention (212.6-255)
 
-#How We Did It
+##How We Did It
 
 - To collect data: [Arduino](http://www.arduino.cc/) and Star Wars EEG Headset
 - To pull data off Arduino: [Node.js](https://nodejs.org/)
 - To visualize data: Javascript and [D3](http://d3js.org/)
 - To stream data to webpage: [Socket.io](http://socket.io/)
 
-##Installation & Setup
+#Installation & Setup
 
-###Pre-requisites
-1. You have [installed the Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software)
-###Program the Arduino
-###Running the Server
-###Viewing the Web Page
+##Pre-requisites
+1. You have installed the [Arduino Software (IDE)](https://www.arduino.cc/en/Main/Software)
+2. You have installed [Node.js](https://nodejs.org)
+##Program the Arduino
+1. Download the latest release of the [Arduino Brain Library](https://github.com/kitschpatrol/Brain/releases) as a zip file
+2. From the Arduino IDE, import the Brain Library. From the **Sketch** menu, select **Import Library...**, then **Add Library...** and select the zip file that you downloaded in step 1.
+3. For this project we used one of the examples provided with the Brain Library (https://github.com/kitschpatrol/Brain/blob/master/examples/BrainSerialTest/BrainSerialTest.ino)[https://github.com/kitschpatrol/Brain/blob/master/examples/BrainSerialTest/BrainSerialTest.ino]
+```
+code
+```
+##Running the Server
+##Viewing the Web Page
 
-#References / Notes
+#Other References and Notes
 [http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/](http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/)
 
 ##Arduino Code Used
