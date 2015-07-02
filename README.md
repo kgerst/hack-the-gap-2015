@@ -48,14 +48,26 @@
 
 ##Installing the Server's Dependencies
 The locally running server that reads the data off of the Arduino and streams it to a webpage was written using Node. In order to install the project and all its dependencies, follow these steps:
+
 1. `git clone https://github.com/kgerst/hack-the-gap-2015.git` - be ready to provide your github credentials or clone via ssh: `git clone git@github.com:kgerst/hack-the-gap-2015.git`
-2. From within the hack-the-gap-2015 directory, execute the following commands: `sudo npm install -g bower`
-`sudo npm install -g gulp`
-`npm install`
-`bower install`
-`gulp`
+
+2. From within the hack-the-gap-2015 directory, execute the following commands: 
+```bash
+sudo npm install -g bower
+sudo npm install -g gulp
+npm install
+bower install
+gulp
+```
+
+##Starting the Local Server
+If everything was installed correctly, you should now be able to start the server by executing the following command (still from within the hack-the-gap-2015 directory). NOTE that the Arduino needs to be connected to your laptop when you start the server or it will crash (this _IS_ a hack, afterall!).
+```bash
+npm start
+```
 
 ##Viewing the Web Page
+Now you can open your browser to [http://localhost:3000](http://localhost:3000) to see the visualization that was created using D3.
 
 #Other References and Notes
 [http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/](http://www.instructables.com/id/How-to-hack-EEG-toys-with-arduino/)
